@@ -1,0 +1,60 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@include file="/context/mytags.jsp"%>
+<t:base type="jquery,easyui,tools,DatePicker"></t:base>
+<div class="easyui-layout" fit="true">
+  <div region="center" style="padding:0px;border:0px">
+  <t:datagrid name="staffWorkExperienceList" checkbox="true" fitColumns="false" title="工作经历" actionUrl="staffWorkExperienceController.do?datagrid" idField="id" fit="true" queryMode="group">
+   <t:dgCol title="id"  field="id"  hidden="true"  queryMode="group"  width="120"></t:dgCol>
+   <t:dgCol title="员工id"  field="staffId"    queryMode="group"  width="120"></t:dgCol>
+   <t:dgCol title="工作类型"  field="workType"    queryMode="group"  width="120"></t:dgCol>
+   <t:dgCol title="开始时间"  field="startDate"    queryMode="group"  width="120"></t:dgCol>
+   <t:dgCol title="结束时间"  field="endDate"    queryMode="group"  width="120"></t:dgCol>
+   <t:dgCol title="公司名称"  field="companyName"    queryMode="group"  width="120"></t:dgCol>
+   <t:dgCol title="公司规模"  field="companyCount"    queryMode="group"  width="120"></t:dgCol>
+   <t:dgCol title="职位"  field="position"    queryMode="group"  width="120"></t:dgCol>
+   <t:dgCol title="工作内容"  field="workContent"    queryMode="group"  width="120"></t:dgCol>
+   <t:dgCol title="证明人"  field="certifyName"    queryMode="group"  width="120"></t:dgCol>
+   <t:dgCol title="证明人电话"  field="tel"    queryMode="group"  width="120"></t:dgCol>
+   <t:dgCol title="创建人"  field="creatUser"    queryMode="group"  width="120"></t:dgCol>
+   <t:dgCol title="创建时间"  field="creatTime" formatter="yyyy-MM-dd"   queryMode="group"  width="120"></t:dgCol>
+   <t:dgCol title="跟新人"  field="updateUser"    queryMode="group"  width="120"></t:dgCol>
+   <t:dgCol title="跟新时间"  field="updateTime" formatter="yyyy-MM-dd"   queryMode="group"  width="120"></t:dgCol>
+   <t:dgCol title="操作" field="opt" width="100"></t:dgCol>
+   <t:dgDelOpt title="删除" url="staffWorkExperienceController.do?doDel&id={id}" />
+   <t:dgToolBar title="录入" icon="icon-add" url="staffWorkExperienceController.do?goAdd" funname="add"></t:dgToolBar>
+   <t:dgToolBar title="编辑" icon="icon-edit" url="staffWorkExperienceController.do?goUpdate" funname="update"></t:dgToolBar>
+   <t:dgToolBar title="批量删除"  icon="icon-remove" url="staffWorkExperienceController.do?doBatchDel" funname="deleteALLSelect"></t:dgToolBar>
+   <t:dgToolBar title="查看" icon="icon-search" url="staffWorkExperienceController.do?goUpdate" funname="detail"></t:dgToolBar>
+   <t:dgToolBar title="导入" icon="icon-put" funname="ImportXls"></t:dgToolBar>
+   <t:dgToolBar title="导出" icon="icon-putout" funname="ExportXls"></t:dgToolBar>
+   <t:dgToolBar title="模板下载" icon="icon-putout" funname="ExportXlsByT"></t:dgToolBar>
+  </t:datagrid>
+  </div>
+ </div>
+ <script src = "webpage/xyoa/staffworkexperience/staffWorkExperienceList.js"></script>		
+ <script type="text/javascript">
+ $(document).ready(function(){
+ 		//给时间控件加上样式
+ 			$("#staffWorkExperienceListtb").find("input[name='creatTime_begin']").attr("class","Wdate").click(function(){WdatePicker({dateFmt:'yyyy-MM-dd'});});
+ 			$("#staffWorkExperienceListtb").find("input[name='creatTime_end']").attr("class","Wdate").click(function(){WdatePicker({dateFmt:'yyyy-MM-dd'});});
+ 			$("#staffWorkExperienceListtb").find("input[name='updateTime_begin']").attr("class","Wdate").click(function(){WdatePicker({dateFmt:'yyyy-MM-dd'});});
+ 			$("#staffWorkExperienceListtb").find("input[name='updateTime_end']").attr("class","Wdate").click(function(){WdatePicker({dateFmt:'yyyy-MM-dd'});});
+ });
+ 
+   
+ 
+//导入
+function ImportXls() {
+	openuploadwin('Excel导入', 'staffWorkExperienceController.do?upload', "staffWorkExperienceList");
+}
+
+//导出
+function ExportXls() {
+	JeecgExcelExport("staffWorkExperienceController.do?exportXls","staffWorkExperienceList");
+}
+
+//模板下载
+function ExportXlsByT() {
+	JeecgExcelExport("staffWorkExperienceController.do?exportXlsByT","staffWorkExperienceList");
+}
+ </script>

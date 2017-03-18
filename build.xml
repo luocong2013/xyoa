@@ -1,0 +1,64 @@
+<?xml version="1.0"?>  
+<project name="test1">  
+	<property name="TEMP_DIR" value="temp" />
+	<property name="WEB_DIR" value="./src/main/webapp/" />
+	<property name="WEB_CLASS_DIR" value="./target/classes/" />
+	<property name="SUB_TEMP_DIR" value="temp/WEB-INF/classes" />
+
+
+	
+	<!--<target name="test1">
+	     <loadfile property="test1"
+	       srcFile="test.txt"
+	       encoding="GBK"/>
+	     <echo message="${test1}"/>
+		
+		 <delete dir="getVersion"/>
+		 <mkdir dir="getVersion"/>
+		
+		<copy todir="getVersion">
+		      <fileset file="${test1}" />
+		</copy>
+
+		
+	   </target> -->
+	
+	<!--动态补丁包- - - - - - - - - - - - - - - - - -->
+	<target name="xyoaDynamic">
+			<tstamp>
+				<format property="TODAY" pattern="yyyyMMddHHmmss" locale="cn" />
+			</tstamp>
+		
+		<delete dir="getVersion"/>
+		<mkdir dir="getVersion"/>
+				
+		<delete dir="${TEMP_DIR}"/>
+		<mkdir dir="${TEMP_DIR}"/>
+		
+		<copy todir="${TEMP_DIR}" overwrite="true">
+			<fileset dir="${WEB_DIR}">
+				<include name="**/*.*" />
+			</fileset>
+		</copy>
+		<copy todir="${SUB_TEMP_DIR}" overwrite="true">
+					<fileset dir="${WEB_CLASS_DIR}">
+						<include name="**/*.*" />
+					</fileset>
+		</copy>
+		
+		<!--1.打指定目录下的所有文件：  webpage/xyoa/test/-->
+		<!--2.打指定目录下的制定文件文件 ：WEB-INF/web.xml-->
+		<tar destfile="getVersion/xyoa-patch-${TODAY}.tar" >
+			<tarfileset dir="${TEMP_DIR}">
+				<includesfile name="dynamic.txt"/>
+			</tarfileset>
+		</tar>
+		
+		<!--<delete dir="${TEMP_DIR}"/>-->
+		
+		<echo>Patch dynamic resources DONE!</echo>
+		
+
+	</target>
+	
+</project>  
