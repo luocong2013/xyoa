@@ -51,7 +51,7 @@
           <div class="center">
             <h1 id="id-text2" class="grey">
               <i class="ace-icon fa fa-leaf green"></i>
-               享宇协同办公系统
+               协同办公系统
             </h1>
 <!--             <h4 class="blue" id="id-company-text">www.jeecg.org</h4>
  -->          </div>

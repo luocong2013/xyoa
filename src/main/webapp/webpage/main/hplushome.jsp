@@ -117,6 +117,8 @@ table {
                     </ol>
                 </div>
             </div>
+            
+            <!-- 
             <div class="ibox float-e-margins">
                 <div class="ibox-title">
                     <h5>联系信息</h5>
@@ -125,19 +127,18 @@ table {
                 <div class="ibox-content">
                     <p><i class="fa fa-send-o"></i> 官网：<a href="http://www.xyect.com/" target="_blank">http://www.xyect.com/</a>
                     </p>
-                    <p><i class="fa fa-empire"></i> 地址：<a href="javascript:;">四川省成都市天仁路388号凯德天府10楼</a>
+                    <p><i class="fa fa-empire"></i> 地址：<a href="javascript:;">成都市西南航空港经济开发区学府路一段24号</a>
                     </p>
                     <p><i class="fa fa-hacker-news"></i>联系电话：<a href="javascript:;">400 604 0955</a>
                     </p>
                     <p><i class="fa fa-credit-card"></i> 邮箱：<a href="javascript:;" class="邮箱">xyhr@xyebank.com</a>
                     </p> 
                 </div>
-            </div>  
+            </div>-->
         </div>
+        
+        
         <div class="col-sm-4">
-        
-        
-        
         <div id="trialend" class="ibox float-e-margins" hidden="hidden">
                 <div class="ibox-title">
                     <h5>转正信息提醒</h5>

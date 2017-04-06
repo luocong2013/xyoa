@@ -45,13 +45,13 @@
                         <span><img alt="image" class="img-circle" src="plug-in/login/images/jeecg-aceplus.png" /></span>
                         <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                                 <span class="clear">
-                               <span class="block m-t-xs"><strong class="font-bold">享宇金服</strong></span>
+                               <span class="block m-t-xs"><strong class="font-bold">协同办公系统</strong></span>
+                               </span>
                         </a>
                         <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                                 <span class="clear">
-                               <span class="block m-t-xs"><strong class="font-bold">${userName }(${realname})</strong>                                
+                               <span class="block m-t-xs"><strong class="font-bold">${realname}</strong></span>                               
                                <span class="text-muted text-xs block">${roleName }<b class="caret"></b></span>
-								</span>
                                 </span>
                         </a>
                         <ul class="dropdown-menu animated fadeInRight m-t-xs">
@@ -68,7 +68,7 @@
                             <li><a href="javascript:logout()">注销</a></li>
                         </ul>
                     </div>
-                    <div class="logo-element">Jeecg
+                    <div class="logo-element">OA
                     </div>
                 </li>
 
@@ -85,7 +85,7 @@
                 <div class="navbar-header" style="height: 60px;"><a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i> </a>
                     <form role="search" class="navbar-form-custom" method="post" action="search_results.html">
                         <div class="form-group">
-                            <input type="text" placeholder="欢迎使用享宇协同办公系统 …" class="form-control" name="top-search" id="top-search">
+                            <input type="text" placeholder="欢迎使用本系统……" class="form-control" name="top-search" id="top-search">
                         </div>
                     </form>
                 </div>
@@ -177,7 +177,7 @@
          	
          </div>
         <div class="footer">
-            <div class="pull-right"><a href="http://www.xyect.com/" target="_blank">享宇金服 ©2015 XIANGYU</a>
+            <div class="pull-right"><a href="http://math.cuit.edu.cn/" target="_blank">成都信息工程大学 ©2017 CUIT-SXXY</a>
             </div>
         </div>
     </div>
@@ -366,6 +366,7 @@
     
     function myOnload()
     {
+    	/**
     	//转正提醒
     	$.post("staffController.do?getTrialEndData",{async: false},function(data){  
             if(data!=null&&data.length>0){  
@@ -380,7 +381,7 @@
    		     $("#iframe0").contents().find("#staffendtrial").append(tr); 
    	      	 }
             }
-        },"json");
+        },"json");*/
     	
 
     	
