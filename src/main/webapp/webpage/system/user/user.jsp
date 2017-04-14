@@ -136,7 +136,7 @@
                 <input name="roleName" class="inputxt" value="${roleName }" id="roleName" readonly="readonly" datatype="*" />
                 <t:choose hiddenName="roleid" hiddenid="id" url="userController.do?userroles" name="roleList"
                           icon="icon-search" title="common.role.list" textname="roleName" isclear="true" isInit="true"></t:choose>
-                <span class="Validform_checktip"><t:mutiLang langKey="role.muti.select"/></span>
+                <%--<span class="Validform_checktip"><t:mutiLang langKey="role.muti.select"/></span> --%>
             </td>
 		</tr>
 		<tr>

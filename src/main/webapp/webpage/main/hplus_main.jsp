@@ -16,8 +16,8 @@
 
     <title><t:mutiLang langKey="jeect.platform"/></title>
 
-    <meta name="keywords" content="JEECG,后台bootstrap框架,会员中心主题,后台HTML,响应式后台">
-    <meta name="description" content="JEECG是一个完全响应式，基于Bootstrap3最新版本开发的扁平化主题，她采用了主流的左右两栏式布局，使用了Html5+CSS3等现代技术">
+    <meta name="keywords" content="JEECG">
+    <meta name="description" content="JEECG">
 
     <link rel="shortcut icon" href="images/favicon.ico">
     <link href="plug-in-ui/hplus/css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
@@ -85,7 +85,7 @@
                 <div class="navbar-header" style="height: 60px;"><a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i> </a>
                     <form role="search" class="navbar-form-custom" method="post" action="search_results.html">
                         <div class="form-group">
-                            <input type="text" placeholder="欢迎使用本系统……" class="form-control" name="top-search" id="top-search">
+                            <input type="text" placeholder="欢迎使用本系统……" readonly="readonly" class="form-control" name="top-search" id="top-search">
                         </div>
                     </form>
                 </div>
@@ -114,30 +114,6 @@
                             </li>
                         </ul>
                     </li>
-                   <%--  <li class="dropdown">
-                        <a class="dropdown-toggle count-info" data-toggle="dropdown" href="#">
-                            <i class="fa fa-bell"></i> <span class="label label-primary">0</span>
-                        </a>
-                        <ul class="dropdown-menu dropdown-alerts">
-                            <li>
-                                <a>
-                                    <div>
-                                        <i class="fa fa-envelope fa-fw"></i> 您有0条未读消息
-                                        <span class="pull-right text-muted small">4分钟前</span>
-                                    </div>
-                                </a>
-                            </li>
-                            <li class="divider"></li>
-                            <li>
-                                <div class="text-center link-block">
-                                    <a class="" href="javascript:goAllMessage();">
-                                        <strong>查看所有 </strong>
-                                        <i class="fa fa-angle-right"></i>
-                                    </a>
-                                </div>
-                            </li>
-                        </ul>
-                    </li> --%>
                     <li class="dropdown hidden-xs">
                         <a class="right-sidebar-toggle" aria-expanded="false">
                             <i class="fa fa-tasks"></i> 主题
@@ -177,7 +153,7 @@
          	
          </div>
         <div class="footer">
-            <div class="pull-right"><a href="http://math.cuit.edu.cn/" target="_blank">成都信息工程大学 ©2017 CUIT-SXXY</a>
+            <div class="pull-right"><a href="http://45.32.13.191/index/" target="_blank">个人网站 ©2017 CUIT-SXXY</a>
             </div>
         </div>
     </div>

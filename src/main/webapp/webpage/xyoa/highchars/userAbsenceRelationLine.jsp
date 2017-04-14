@@ -7,40 +7,48 @@
 			var chart;
 			$.ajax({
 				type : "POST",
-				url : "highCharsController.do?getAbsenceBar&reportType=${reportType}",
+				url : "highCharsController.do?getAbsenceBarRelation&reportType=${reportType}",
 				success : function(jsondata) {
 					data = eval(jsondata);
 					chart = new Highcharts.Chart({
 						chart : {
-							renderTo : 'containerPie',
+							renderTo : 'containerline',
 							plotBackgroundColor : null,
 							plotBorderWidth : null,
 							plotShadow : false
 						},
 						title : {
-							text : "请假记录频繁项集挖掘"
+							text : "请假记录相关性分析"
+						},
+						xAxis : {
+							//categories : data.name
+						},
+						yAxis: {
+							title: {
+								text: '置信度(%)'
+							}
 						},
 						tooltip : {
+							headerFormat: '<span style="font-size: 12px"><b>{point.key}</b></span><br/>',
 							percentageDecimals : 1,
-							formatter: function() {
-            					return  '<b>' + this.point.name + ': ' +  Highcharts.numberFormat(this.percentage, 1) + '%</b>';
-         					}
+							valueSuffix: ' %'
 						},
 						exporting:{  
-			                filename:'饼状图',  
+			                filename:'直线图',  
 			                 url:'${ctxPath}/highCharsController.do?export'  
-			            },  
+			            }, 
 						plotOptions : {
-							pie : {
-								allowPointSelect : true,
+							line : {
+								allowPointSelect : true,//是否允许数据点的点击
 								cursor : 'pointer',
-								showInLegend : false,
+								showInLegend : true,//是否在图注中显示
+								visible: true, //加载时，数据序列默认是显示还是隐藏
 								dataLabels : {
 									enabled : true,
 									color : '#000000',
 									connectorColor : '#000000',
 									formatter : function() {
-										return '<b>' + this.point.name + '</b>: ' + Highcharts.numberFormat(this.percentage, 1)+"%";
+										return '<b>' + this.point.y + '</b> ' + '%';
 									}
 								}
 							}
@@ -52,6 +60,6 @@
 		});
 	});
 </script>
-<div id="containerPie" style="width: 85%; height: 85%"></div>
+<div id="containerline" style="width: 85%; height: 85%"></div>
 
 

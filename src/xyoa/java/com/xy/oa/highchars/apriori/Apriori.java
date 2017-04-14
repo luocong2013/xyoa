@@ -1,5 +1,6 @@
 package com.xy.oa.highchars.apriori;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -7,11 +8,13 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import com.xy.oa.util.Constants;
+
 
 public class Apriori {
 
-	private final static double SUPPORT = 0.1; // 支持度阈值
-	private final static double CONFIDENCE = 0.7; // 置信度阈值
+	private final static double SUPPORT = 0.12; // 支持度阈值
+	private final static double CONFIDENCE = 0.8; // 置信度阈值
 
 	private final static String RIGHT_ITEM_SPLIT = "}"; // 项之间的分隔符
 	private final static String CON = "=>"; // 项之间的分隔符
@@ -219,7 +222,26 @@ public class Apriori {
 			}
 		}
 	}
-
+	
+	public String split(String str) {
+		String retStr = null;
+		retStr = str.replace(Constants.LEF_ITEM_SPLIT, "").replace(Constants.RIGHT_ITEM_SPLIT, ",");
+		retStr = retStr.substring(0, retStr.length()-1);
+		return retStr;
+	}
+	
+	public String splitRelation(String str) {
+		String retStr = null;
+		String[] strs = str.split(CON);
+		retStr = split(strs[0])+CON+split(strs[1]);
+		return retStr;
+	}
+	
+	public Double formatD(Double dou) {
+		DecimalFormat df = new DecimalFormat("#.0000");
+		return Double.valueOf(df.format(dou));
+	}
+	
 //	public static void main(String[] args) {
 //		long startTime = System.currentTimeMillis();
 //		

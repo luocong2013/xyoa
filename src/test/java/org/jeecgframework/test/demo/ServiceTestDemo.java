@@ -1,7 +1,9 @@
 package org.jeecgframework.test.demo;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import org.jeecgframework.core.junit.AbstractUnitTest;
 import org.jeecgframework.web.system.pojo.base.TSDepart;
@@ -10,6 +12,7 @@ import org.jeecgframework.web.system.service.UserService;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import com.xy.oa.highchars.apriori.Apriori;
 import com.xy.oa.util.Constants;
 /**
  * Service 单元测试Demo
@@ -74,21 +77,13 @@ public class ServiceTestDemo extends AbstractUnitTest{
 //			System.err.println(string);
 //		}
 		
-		String sql = "SELECT u.`realname`, d.`departname`, t.`typename`, CONCAT('s-', s.`start_time`) stime, CONCAT('e-', s.`end_time`) etime FROM s_xy_absence s "
+		List<String> transList = new ArrayList<String>();
+		String sql = "SELECT u.`realname`, d.`departname`, t.`typename`, CONCAT('S-', s.`start_time`), CONCAT('E-', s.`end_time`) FROM s_xy_absence s "
 				+ "LEFT JOIN `t_s_base_user` u ON s.`ts_user_id`=u.`ID` "
 				+ "LEFT JOIN `t_s_depart` d ON s.`dept_id`=d.`ID` "
 				+ "LEFT JOIN `t_s_type` t ON s.`absence_type`=t.`typecode` "
 				+ "LEFT JOIN `t_s_typegroup` tg ON t.`typegroupid`=tg.`ID` "
 				+ "WHERE tg.`typegroupcode`=?";
-//		List<Map<String, Object>> lists = userService.findForJdbc(sql, "absence");
-//		for (Map<String, Object> map : lists) {
-//			System.out.println(map.get("realname"));
-//			System.out.println(map.get("departname"));
-//			System.out.println(map.get("typename"));
-//			System.out.println(map.get("stime"));
-//			System.out.println(map.get("etime"));
-//		}
-		
 		List<Object> objs = userService.executeProcedure(sql, "absence");
 		if (objs != null && !objs.isEmpty()) {
 			for (Object object : objs) {
@@ -97,8 +92,22 @@ public class ServiceTestDemo extends AbstractUnitTest{
 				for (Object o : obj) {
 					builder.append(Constants.LEF_ITEM_SPLIT+o+Constants.RIGHT_ITEM_SPLIT);
 				}
-				System.out.println(builder.toString());
+				transList.add(builder.toString());
 			}
+		}
+		Apriori apriori = new Apriori(transList);
+		Map<String, Integer> frequentCollectionMap = apriori.getFC();
+		Set<String> fcKeySet = frequentCollectionMap.keySet();
+		System.out.println("----------------频繁集----------------");
+		for (String fcKey : fcKeySet) {
+			System.out.println(fcKey + "  :  " + frequentCollectionMap.get(fcKey));
+		}
+		Map<String, Double> relationRulesMap = apriori
+				.getRelationRules(frequentCollectionMap);
+		System.out.println("----------------关联规则----------------");
+		Set<String> rrKeySet = relationRulesMap.keySet();
+		for (String rrKey : rrKeySet) {
+			System.out.println(rrKey + "  :  " + relationRulesMap.get(rrKey));
 		}
 	}
 }

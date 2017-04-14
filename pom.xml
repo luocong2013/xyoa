@@ -991,8 +991,8 @@
 	</dependencies>
 
 	<organization>
-		<name>享宇OA系统</name>
-		<url>www.oa.xyect.com</url>
+		<name>OA系统</name>
+		<url>http://45.32.13.191/index/</url>
 	</organization>
 	<build>
 		<plugins>

@@ -7,7 +7,7 @@
 			var chart;
 			$.ajax({
 				type : "POST",
-				url : "highCharsController.do?getAbsenceBar&reportType=${reportType}",
+				url : "highCharsController.do?getAbsenceBarRelation&reportType=${reportType}",
 				success : function(jsondata) {
 					data = eval(jsondata);
 					chart = new Highcharts.Chart({
@@ -18,12 +18,12 @@
 							plotShadow : false
 						},
 						title : {
-							text : "请假记录频繁项集挖掘"
+							text : "请假记录相关性分析"
 						},
 						tooltip : {
 							percentageDecimals : 1,
 							formatter: function() {
-            					return  '<b>' + this.point.name + ': ' +  Highcharts.numberFormat(this.percentage, 1) + '%</b>';
+            					return  '<b>'+this.point.name + ': ' +  Highcharts.numberFormat(this.percentage, 1) +'%</b>';
          					}
 						},
 						exporting:{  

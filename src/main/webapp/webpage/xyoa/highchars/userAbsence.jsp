@@ -19,20 +19,31 @@
 							plotShadow : false
 						},
 						title : {
-							text : "柱状图"
+							text : "请假记录频繁项集挖掘"
 						},
 						xAxis : {
-							categories : [ 'IE9', 'MSIE 7.0', 'MSIE 8.0', 'MSIE 7.0', 'Firefox', 'Chrome' ]
+							//categories : [ 'IE9', 'MSIE 7.0', 'MSIE 8.0', 'MSIE 7.0', 'Firefox', 'Chrome' ]
+						},
+						yAxis: {
+							title: {
+								text: '支持度计数(次)'
+							}
 						},
 						tooltip : {
-							 percentageDecimals : 1,
-							 formatter: function() {
-            					return  '<b>'+this.point.name + '</b>:' +  Highcharts.numberFormat(this.percentage, 1) +'%';
-         					}
-
+							headerFormat: '<span style="font-size: 12px"><b>{point.key}</b></span><br/>',
+							percentageDecimals : 1,
+							valueSuffix: ' 次'
 						},
 						exporting:{  
-			                filename:'column',  
+			                buttons: {
+			                	printButton: {
+			                		enabled: true //是否允许打印按钮
+			                	},
+			                	exportButton: {
+			                		enabled: true //是否允许显示导出按钮
+			                	}
+			                },
+			                filename:'柱状图',  
 			                url:'${ctxPath}/highCharsController.do?export'//
 			            },
 						plotOptions : {
@@ -41,11 +52,12 @@
 								cursor : 'pointer',
 								showInLegend : true,
 								dataLabels : {
+									inside: true,
 									enabled : true,
 									color : '#000000',
 									connectorColor : '#000000',
 									formatter : function() {
-										return '<b>' + this.point.name + '</b>: ' +Highcharts.numberFormat(this.percentage, 1)+"%";
+										return '<b>' + this.point.y + '</b> ' + '次';
 									}
 								}
 							}
@@ -57,6 +69,6 @@
 		});
 	});
 </script>
-<div id="containerCol" style="width: 80%; height: 80%"></div>
+<div id="containerCol" style="width: 85%; height: 85%"></div>
 
 

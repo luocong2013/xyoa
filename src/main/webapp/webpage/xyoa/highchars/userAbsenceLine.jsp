@@ -18,31 +18,37 @@
 							plotShadow : false
 						},
 						title : {
-							text : "频繁项集"
+							text : "请假记录频繁项集挖掘"
 						},
 						xAxis : {
-							categories : [ 'IE9', 'MSIE 7.0', 'MSIE 8.0', 'MSIE 7.0', 'Firefox', 'Chrome' ]
+							//categories : data.name
+						},
+						yAxis: {
+							title: {
+								text: '支持度计数(次)'
+							}
 						},
 						tooltip : {
-							pointFormat : '{series.name}: <b>{point.percentage}%</b>',
-							percentageDecimals : 1
-
+							headerFormat: '<span style="font-size: 12px"><b>{point.key}</b></span><br/>',
+							percentageDecimals : 1,
+							valueSuffix: ' 次'
 						},
 						exporting:{  
-			                filename:'折线图',  
+			                filename:'直线图',  
 			                 url:'${ctxPath}/highCharsController.do?export'  
 			            }, 
 						plotOptions : {
 							line : {
-								allowPointSelect : true,
+								allowPointSelect : true,//是否允许数据点的点击
 								cursor : 'pointer',
-								showInLegend : true,
+								showInLegend : true,//是否在图注中显示
+								visible: true, //加载时，数据序列默认是显示还是隐藏
 								dataLabels : {
 									enabled : true,
 									color : '#000000',
 									connectorColor : '#000000',
 									formatter : function() {
-										return '<b>' + this.point.name + '</b>: ' + this.percentage + ' %';
+										return '<b>' + this.point.y + '</b> ' + '次';
 									}
 								}
 							}
@@ -54,6 +60,6 @@
 		});
 	});
 </script>
-<div id="containerline" style="width: 80%; height: 80%"></div>
+<div id="containerline" style="width: 85%; height: 85%"></div>
 
 
