@@ -6,7 +6,7 @@ import org.jeecgframework.core.common.service.CommonService;
 
 import com.xy.oa.activiti.absence.entity.SXyAbsenceEntity;
 /**
- * 享宇请假表业务层接口定义
+ * 请假表业务层接口定义
  * @author Luo
  *
  */

@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>享宇出差表</title>
+  <title>出差表</title>
   <t:base type="jquery,easyui,tools"></t:base>
 </head>
 

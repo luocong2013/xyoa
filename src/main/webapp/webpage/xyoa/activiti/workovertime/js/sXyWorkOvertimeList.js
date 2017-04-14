@@ -9,8 +9,8 @@ $(document).ready(function(){
 		$("#sXyWorkOvertimeListtb").find("input[name='applyDate']").attr("class","Wdate").click(function(){WdatePicker({dateFmt:'yyyy-MM-dd'});});
 		$("#sXyWorkOvertimeListtb").find("input[name='cTime']").attr("class","Wdate").click(function(){WdatePicker({dateFmt:'yyyy-MM-dd'});});
 		$("#sXyWorkOvertimeListtb").find("input[name='uTime']").attr("class","Wdate").click(function(){WdatePicker({dateFmt:'yyyy-MM-dd'});});
-		$("#sXyWorkOvertimeListtb").find("div[name='searchColums']").find("form#sXyWorkOvertimeListForm").append($("#tempSearchColums div[name='searchColums']").html());
-	    $("#tempSearchColums").html('');
+		//$("#sXyWorkOvertimeListtb").find("div[name='searchColums']").find("form#sXyWorkOvertimeListForm").append($("#tempSearchColums div[name='searchColums']").html());
+	    //$("#tempSearchColums").html('');
  });
  
  //编辑加班申请表
@@ -25,27 +25,18 @@ $(document).ready(function(){
 	 createwindow("选择第一审批人", url, 600, 140);
  }
  
-//撤销加班申请
- function delOvertime(id) {
- 	var url = 'sXyWorkOvertimeController.do?delOvertime&id='+id;
- 	var content = "确定撤销该申请？";
+//启动流程
+function startFlow(id) {
+ 	var url = 'sXyWorkOvertimeController.do?startFlow&id='+id;
+ 	var content = "确定启动该流程？";
  	var gridname = 'sXyWorkOvertimeList';
  	confirm(url, content, gridname);
- }
+}
  
 //查看流程图片
  function lookFlowImage(flowInstId) {
 	 var url = 'sXyWorkOvertimeController.do?lookFlowImage&flowInstId='+flowInstId;
 	 createdetailwindow("流程图片",url,1000,500);
- }
- 
- 
-//重新提交加班申请
- function reSubmitOvertime(id) {
- 	var url = 'sXyWorkOvertimeController.do?reSubmitOvertime&id='+id;
- 	var content = "确定重新提交该申请？";
- 	var gridname = 'sXyWorkOvertimeList';
- 	confirm(url, content, gridname);
  }
  
  //取消加班申请

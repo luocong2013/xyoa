@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
  <head>
-  <title>享宇出差表</title>
+  <title>出差表</title>
   <t:base type="jquery,easyui,tools,DatePicker"></t:base>
   <script src = "webpage/xyoa/activiti/businesstrip/js/sXyBusinessTrip-add.js"></script>
   <script type="text/javascript">

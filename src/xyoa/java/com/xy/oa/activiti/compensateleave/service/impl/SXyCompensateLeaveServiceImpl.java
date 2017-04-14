@@ -18,7 +18,7 @@ import com.xy.oa.activiti.compensateleave.entity.SXyCompensateLeaveEntity;
 import com.xy.oa.activiti.compensateleave.service.SXyCompensateLeaveServiceI;
 
 /**
- * 享宇调休申请服务层 接口实现
+ * 调休申请服务层 接口实现
  * @author Luo
  *
  */

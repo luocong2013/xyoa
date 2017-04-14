@@ -5,7 +5,7 @@
 <div class="easyui-layout" fit="true">
 	<div region="center" style="padding: 0px; border: 0px">
 		<t:datagrid name="staffList" checkbox="false" fitColumns="true"
-			onDblClick="onDbClick_table_row" title="享宇员工表"
+			onDblClick="onDbClick_table_row" title="在职员工表"
 			actionUrl="staffController.do?datagrid" idField="id" fit="true"
 			queryMode="group">
 			<t:dgCol title="主键" field="id" hidden="true" queryMode="single"

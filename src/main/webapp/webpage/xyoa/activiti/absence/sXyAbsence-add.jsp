@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>享宇请假表</title>
+  <title>请假表</title>
   <t:base type="jquery,easyui,tools,DatePicker"></t:base>
   <script src = "webpage/xyoa/activiti/absence/js/sXyAbsence-add.js"></script>
    <script type="text/javascript">

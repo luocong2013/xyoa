@@ -110,32 +110,30 @@ public class LoginController extends BaseController{
 				j.setMsg(mutiLangService.getLang("common.username.or.password.error"));
 				j.setSuccess(false);
 				return j;
-			}
-			if (u != null && u.getStatus() != 0) {
-				// 处理用户有多个组织机构的情况，以弹出框的形式让用户选择
-				Map<String, Object> attrMap = new HashMap<String, Object>();
-				j.setAttributes(attrMap);
-
-				String orgId = req.getParameter("orgId");
-				if (oConvertUtils.isEmpty(orgId)) {
-					// 没有传组织机构参数，则获取当前用户的组织机构
-					Long orgNum = systemService.getCountForJdbc("select count(1) from t_s_user_org where user_id = '" + u.getId() + "'");
-					if (orgNum > 1) {
-						attrMap.put("orgNum", orgNum);
-						attrMap.put("user", u);
+			} else {
+				if (u.getStatus() != Globals.User_Forbidden && u.getDeleteFlag() != Globals.Delete_Forbidden) {
+					// 处理用户有多个组织机构的情况，以弹出框的形式让用户选择
+					Map<String, Object> attrMap = new HashMap<String, Object>();
+					j.setAttributes(attrMap);
+					String orgId = req.getParameter("orgId");
+					if (oConvertUtils.isEmpty(orgId)) {
+						// 没有传组织机构参数，则获取当前用户的组织机构
+						Long orgNum = systemService.getCountForJdbc("select count(1) from t_s_user_org where user_id = '" + u.getId() + "'");
+						if (orgNum > 1) {
+							attrMap.put("orgNum", orgNum);
+							attrMap.put("user", u);
+						} else {
+							Map<String, Object> userOrgMap = systemService.findOneForJdbc("select org_id as orgId from t_s_user_org where user_id=?", u.getId());
+							saveLoginSuccessInfo(req, u, (String) userOrgMap.get("orgId"));
+						}
 					} else {
-						Map<String, Object> userOrgMap = systemService.findOneForJdbc("select org_id as orgId from t_s_user_org where user_id=?", u.getId());
-						saveLoginSuccessInfo(req, u, (String) userOrgMap.get("orgId"));
+						attrMap.put("orgNum", 1);
+						saveLoginSuccessInfo(req, u, orgId);
 					}
 				} else {
-					attrMap.put("orgNum", 1);
-					saveLoginSuccessInfo(req, u, orgId);
+					j.setMsg("用户已被锁定或删除");
+					j.setSuccess(false);
 				}
-			} else {
-
-				j.setMsg(mutiLangService.getLang("common.lock.user"));
-
-				j.setSuccess(false);
 			}
 		}
 		return j;

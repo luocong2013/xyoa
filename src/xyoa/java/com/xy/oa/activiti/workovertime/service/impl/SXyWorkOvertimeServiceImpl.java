@@ -17,7 +17,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.xy.oa.activiti.workovertime.entity.SXyWorkOvertimeEntity;
 import com.xy.oa.activiti.workovertime.service.SXyWorkOvertimeServiceI;
 /**
- * 享宇加班申请表服务层实现类
+ * 加班申请表服务层实现类
  * @author Luo
  *
  */

@@ -4,7 +4,7 @@
 <html lang="zh-CN">
 <head>
 	<meta charset="utf-8">
-  <title>享宇请假表</title>
+  <title>请假表</title>
   <t:base type="jquery,easyui,tools"></t:base>
   <script type="text/javascript">
 //编写自定义JS代码

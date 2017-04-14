@@ -7,7 +7,7 @@ import org.jeecgframework.core.common.service.CommonService;
 import com.xy.oa.activiti.workovertime.entity.SXyWorkOvertimeEntity;
 
 /**
- * 享宇加班申请表服务层接口
+ * 加班申请表服务层接口
  * @author Luo
  *
  */

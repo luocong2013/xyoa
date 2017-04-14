@@ -18,10 +18,17 @@ public final class Globals {
 	public static final String USER_SESSION="USER_SESSION";
 	/**
 	 * 人员类型
+	 * 正常
 	 */
-	public static final Short User_Normal=1;//正常
-	public static final Short User_Forbidden=0;//禁用
-	public static final Short User_ADMIN=-1;//超级管理员
+	public static final Short User_Normal=1;
+	/**
+	 * 禁用
+	 */
+	public static final Short User_Forbidden=0;
+	/**
+	 * 超级管理员
+	 */
+	public static final Short User_ADMIN=-1;
 	
 	/**
 	 * 逻辑删除标记

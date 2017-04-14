@@ -108,7 +108,7 @@ table {
             <div class="ibox float-e-margins" id="approveid" hidden="hidden">
             
                 <div class="ibox-title">
-                    <h5>待您审批 </h5>
+                    <h5>待您查看</h5>
                 </div>
                 <div class="ibox-content"  >
                    

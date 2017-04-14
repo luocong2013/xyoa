@@ -14,7 +14,7 @@ import org.jeecgframework.web.system.pojo.base.TSUser;
 
 /**   
  * @Title: Entity
- * @Description: 享宇调休表
+ * @Description: 调休表
  * @author onlineGenerator
  * @date 2016-08-22 17:22:36
  * @version V1.0   

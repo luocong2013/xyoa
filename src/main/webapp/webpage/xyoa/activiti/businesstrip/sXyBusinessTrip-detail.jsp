@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
  <head>
-  <title>享宇出差表</title>
+  <title>出差表</title>
   <t:base type="jquery,easyui,tools,DatePicker"></t:base>
   <script type="text/javascript">
   //编写自定义JS代码
@@ -17,13 +17,10 @@
 					<tr>
 						<c:choose>
 							<c:when test="${sXyBusinessTripPage.flowState == '1' }">
-								<td align="center" colspan="4" style="color: red; font-size: 20px; font-family: 华文楷体">出差待审批</td>
+								<td align="center" colspan="4" style="color: red; font-size: 20px; font-family: 华文楷体">申请未提交</td>
 							</c:when>
 							<c:when test="${sXyBusinessTripPage.flowState == '2' }">
-								<td align="center" colspan="4" style="color: red; font-size: 20px; font-family: 华文楷体">出差审批中</td>
-							</c:when>
-							<c:when test="${sXyBusinessTripPage.flowState == '5' }">
-								<td align="center" colspan="4" style="color: red; font-size: 20px; font-family: 华文楷体">销假审批中</td>
+								<td align="center" colspan="4" style="color: red; font-size: 20px; font-family: 华文楷体">申请审批中</td>
 							</c:when>
 						</c:choose>
 					</tr>
@@ -104,33 +101,6 @@
 					</tr>
 
 					
-					<c:if test="${sXyBusinessTripPage.flowState == '5' || sXyBusinessTripPage.flowState == '7' }">
-					<tr>
-						<td align="right">
-							<label class="Validform_label">
-								出差结束时间:
-							</label>
-						</td>
-						<td class="value">
-									  <input id="endTime" name="endTime" type="text" style="width: 150px" class="Wdate" onClick="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})" 
-									  value='<fmt:formatDate value='${sXyBusinessTripPage.endTime}' type="date" pattern="yyyy-MM-dd HH:mm:ss"/>'>
-							<span class="Validform_checktip"></span>
-							<label class="Validform_label" style="display: none;">出差结束时间</label>
-						</td>
-						<td align="right">
-							<label class="Validform_label">
-								真实出差时长:
-							</label>
-						</td>
-						<td class="value">
-						     	 <input id="tripHour" name="tripHour" type="text" style="width: 150px" class="inputxt"  value='${sXyBusinessTripPage.tripHour}'>
-						     	 <font color="red">（h）</font>
-							<span class="Validform_checktip"></span>
-							<label class="Validform_label" style="display: none;">真实出差时长</label>
-						</td>
-					</tr>
-					</c:if>
-					
 					<c:if test="${sXyBusinessTripPage.flowState != '0' }">
 					<tr>
 						<td align="right">
@@ -160,21 +130,6 @@
 						</td>
 					</tr>
 					
-					<c:if test="${sXyBusinessTripPage.flowState == '5' || sXyBusinessTripPage.flowState == '7' }">
-					<tr>
-						<td align="right">
-							<label class="Validform_label">
-								销假原因:
-							</label>
-						</td>
-						<td class="value" colspan="3">
-						  	 	<textarea id="backRemarks" style="width:540px; height: 150px;" class="inputxt" rows="6" name="backRemarks">${sXyBusinessTripPage.backRemarks}</textarea>
-							<span class="Validform_checktip"></span>
-							<label class="Validform_label" style="display: none;">销假原因</label>
-						</td>
-					</tr>
-					</c:if>
-					
 					<tr>
 						<td align="right">
 							<label class="Validform_label">
@@ -187,31 +142,19 @@
 										<input id="flowState" name="flowState" type="text" style="width: 150px" class="inputxt"   value='流程未启动'>
 									</c:when>
 									<c:when test="${sXyBusinessTripPage.flowState == '1' }">
-										<input id="flowState" name="flowState" type="text" style="width: 150px" class="inputxt"   value='出差待审批'>
+										<input id="flowState" name="flowState" type="text" style="width: 150px" class="inputxt"   value='申请未提交'>
 									</c:when>
 									<c:when test="${sXyBusinessTripPage.flowState == '2' }">
-										<input id="flowState" name="flowState" type="text" style="width: 150px" class="inputxt"   value='出差审批中'>
+										<input id="flowState" name="flowState" type="text" style="width: 150px" class="inputxt"   value='申请审批中'>
 									</c:when>
 									<c:when test="${sXyBusinessTripPage.flowState == '3' }">
-										<input id="flowState" name="flowState" type="text" style="width: 150px" class="inputxt"   value='出差申请被否决'>
+										<input id="flowState" name="flowState" type="text" style="width: 150px" class="inputxt"   value='申请被驳回'>
 									</c:when>
 									<c:when test="${sXyBusinessTripPage.flowState == '4' }">
-										<input id="flowState" name="flowState" type="text" style="width: 150px" class="inputxt"   value='出差审批通过'>
+										<input id="flowState" name="flowState" type="text" style="width: 150px" class="inputxt"   value='审批已完成'>
 									</c:when>
 									<c:when test="${sXyBusinessTripPage.flowState == '5' }">
-										<input id="flowState" name="flowState" type="text" style="width: 150px" class="inputxt"   value='销假审批中'>
-									</c:when>
-									<c:when test="${sXyBusinessTripPage.flowState == '6' }">
-										<input id="flowState" name="flowState" type="text" style="width: 150px" class="inputxt"   value='销假申请被否决'>
-									</c:when>
-									<c:when test="${sXyBusinessTripPage.flowState == '7' }">
-										<input id="flowState" name="flowState" type="text" style="width: 150px" class="inputxt"   value='已完成'>
-									</c:when>
-									<c:when test="${sXyBusinessTripPage.flowState == '8' }">
-										<input id="flowState" name="flowState" type="text" style="width: 150px" class="inputxt"   value='已撤销'>
-									</c:when>
-									<c:when test="${sXyBusinessTripPage.flowState == '9' }">
-										<input id="flowState" name="flowState" type="text" style="width: 150px" class="inputxt"   value='已取消'>
+										<input id="flowState" name="flowState" type="text" style="width: 150px" class="inputxt"   value='申请已取消'>
 									</c:when>
 								</c:choose>
 							<span class="Validform_checktip"></span>

@@ -1,6 +1,9 @@
 package com.xy.oa.util;
 
 public interface Constants {
+	
+	public final static String LEF_ITEM_SPLIT = "{"; // 项之间的分隔符
+	public final static String RIGHT_ITEM_SPLIT = "}"; // 项之间的分隔符
 
     // 定义短信验证码长度
     public static final int MOBILE_CODE_LENGTH = 6;

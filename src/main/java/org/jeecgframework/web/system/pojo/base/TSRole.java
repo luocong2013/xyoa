@@ -1,15 +1,9 @@
 package org.jeecgframework.web.system.pojo.base;
 
-import static javax.persistence.GenerationType.SEQUENCE;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
-import org.hibernate.annotations.GenericGenerator;
 import org.jeecgframework.core.common.entity.IdEntity;
 import org.jeecgframework.poi.excel.annotation.Excel;
 
@@ -20,6 +14,7 @@ import org.jeecgframework.poi.excel.annotation.Excel;
 @Entity
 @Table(name = "t_s_role")
 public class TSRole extends IdEntity implements java.io.Serializable {
+	
 	@Excel(name = "角色名称")
 	private String roleName;//角色名称
 	@Excel(name = "角色编码")

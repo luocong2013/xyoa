@@ -9,9 +9,6 @@ $(document).ready(function(){
  			$("#sXyBusinessTripListtb").find("input[name='applyDate']").attr("class","Wdate").click(function(){WdatePicker({dateFmt:'yyyy-MM-dd'});});
  			$("#sXyBusinessTripListtb").find("input[name='cTime']").attr("class","Wdate").click(function(){WdatePicker({dateFmt:'yyyy-MM-dd'});});
  			$("#sXyBusinessTripListtb").find("input[name='uTime']").attr("class","Wdate").click(function(){WdatePicker({dateFmt:'yyyy-MM-dd'});});
- 			
- 			$("#sXyBusinessTripListtb").find("div[name='searchColums']").find("form#sXyBusinessTripListForm").append($("#tempSearchColums div[name='searchColums']").html());
- 	        $("#tempSearchColums").html('');
  });
  
  //编辑出差申请
@@ -26,10 +23,10 @@ $(document).ready(function(){
 	 createwindow("选择第一审批人",url,600,140);
  }
  
-//撤销出差申请
- function delTrip(id) {
-	 var url = 'sXyBusinessTripController.do?delTrip&id='+id;
-	 var content = "确定撤销该申请？";
+//启动流程
+ function startFlow(id) {
+	 var url = 'sXyBusinessTripController.do?startFlow&id='+id;
+	 var content = "确定启动该流程？";
 	 var gridname = 'sXyBusinessTripList';
 	 confirm(url, content, gridname);
  }
@@ -40,14 +37,6 @@ $(document).ready(function(){
 	 createdetailwindow("流程图片",url,1000,500);
  }
  
- //重新提交出差申请
- function reSubmitTrip(id) {
-	 var url = 'sXyBusinessTripController.do?reSubmitTrip&id='+id;
-	 var content = "确定重新提交该申请？";
-	 var gridname = 'sXyBusinessTripList';
-	 confirm(url, content, gridname);
- }
- 
  //取消出差申请
  function cancelTrip(id) {
 	 var url = 'sXyBusinessTripController.do?cancelTrip&id='+id;
@@ -56,8 +45,3 @@ $(document).ready(function(){
 	 confirm(url, content, gridname);
  }
  
- //销假
- function gobackTrip(id) {
-	 var url = 'sXyBusinessTripController.do?gobackTrip&id='+id;
-	 createwindow("销假申请", url, 600, 300);
- }

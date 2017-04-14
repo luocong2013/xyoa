@@ -9,6 +9,7 @@ import java.util.Map;
 import javax.servlet.http.HttpServletResponse;
 
 import org.activiti.engine.history.HistoricTaskInstance;
+import org.activiti.engine.repository.ProcessDefinition;
 import org.activiti.engine.task.Task;
 import org.hibernate.Session;
 import org.hibernate.criterion.DetachedCriteria;
@@ -428,16 +429,60 @@ public interface CommonService {
 	/**
 	 * 添加流程的服务接口
 	 */
+	
+	/**
+	 * 部署流程定义
+	 * @param inputStream
+	 * @param fileName
+	 */
+	public void deploy(InputStream inputStream, String fileName) throws Exception;
+	/**
+	 * 查询流程定义信息，对应（act_re_procdef）表
+	 * @return
+	 */
+	public List<ProcessDefinition> findProcessDefinitions();
+	/**
+	 * 查看流程定义图片
+	 * @param pdid
+	 */
+	public InputStream viewImage(String pdid);
+	/**
+	 * 删除流程定义
+	 */
+	public void deleteProcessDefinition(String deploymentId);
 	/**
 	 * 启动流程，返回流程实例ID
 	 * @param processDefinitionKey：流程KEY
 	 * @param Id：业务表ID
-	 * @param variables：传入的参数
 	 * @param applyUserId：申请人编号(userName)
 	 * @return
 	 * @throws Exception
 	 */
-	public String startFlow(String processDefinitionKey, String Id, Map<String, Object> variables, String applyUserId) throws Exception;
+	public String startFlow(String processDefinitionKey, String Id, String applyUserId) throws Exception;
+	/**
+	 * 查询下一连线名称集合
+	 * @param flowInstId
+	 * @param assignee
+	 * @return
+	 */
+	public List<String> findNextLineNames(String flowInstId, String assignee);
+	/**
+	 * 查询下一审批人角色编码
+	 * @param flowInstId
+	 * @param lineName
+	 * @param assignee
+	 * @return
+	 * @throws Exception
+	 */
+	public String findNextApproverRoleCode(String flowInstId, String lineName, String assignee);
+	/**
+	 * 按照指定的前缀查询连线名
+	 * @param flowInstId
+	 * @param fixLineName
+	 * @param assignee
+	 * @return
+	 */
+	public String findLineName(String flowInstId, String fixLineName, String assignee);
 	/**
 	 * 撤销流程
 	 * @param flowInstId：流程实例ID
@@ -447,19 +492,17 @@ public interface CommonService {
 	/**
 	 * 查看当前用户的任务（未完成的任务）
 	 * @param assignee：当前登录用户编号(userName)
-	 * @param isHr：是否是人事部人员
 	 * @return
 	 * @throws Exception
 	 */
-	public List<Task> queryTask(String assignee, boolean isHr) throws Exception;
+	public List<Task> queryTask(String assignee) throws Exception;
 	/**
 	 * 查看当前用户的历史任务（已完成的任务）
 	 * @param assignee：当前登录用户编号(userName)
-	 * @param isHr：是否是人事部人员
 	 * @return
 	 * @throws Exception
 	 */
-	public List<HistoricTaskInstance> queryHisTask(String assignee, boolean isHr) throws Exception;
+	public List<HistoricTaskInstance> queryHisTask(String assignee) throws Exception;
 	/**
 	 * 分页查询 当前用户正在进行的任务对应的流程实例ID
 	 * @param tableName：表名

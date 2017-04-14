@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
  <head>
-  <title>享宇调休表</title>
+  <title>调休表</title>
   <t:base type="jquery,easyui,tools,DatePicker"></t:base>
   <script src = "webpage/xyoa/activiti/compensateleave/js/sXyCompensateLeave-add.js"></script>
   <script type="text/javascript">

@@ -1,14 +1,11 @@
 package org.jeecgframework.web.system.pojo.base;
 
-import org.jeecgframework.poi.excel.annotation.Excel;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
+
+import org.jeecgframework.poi.excel.annotation.Excel;
 
 /**
  * 系统用户表

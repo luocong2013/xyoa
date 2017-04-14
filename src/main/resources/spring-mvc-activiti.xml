@@ -26,11 +26,12 @@
         <property name="labelFontName" value="宋体"/>
 
         <!-- 自动部署 -->
+        <!-- 
         <property name="deploymentResources">
             <list>
                 <value>classpath*:/deployments/*</value>
             </list>
-        </property>
+        </property> -->
     </bean>
 
 	<!-- 创建一个流引擎bean -->

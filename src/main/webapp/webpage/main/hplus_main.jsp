@@ -60,7 +60,7 @@
                                     <t:mutiLang langKey="common.change.password"/>
                                 </a>
                             </li>
-                            <li><a href="javascript:openwindow('<t:mutiLang langKey="common.profile"/>','userController.do?userinfo')"><t:mutiLang langKey="common.profile"/></a></li>
+                            <li><a href="javascript:createwindow('<t:mutiLang langKey="common.profile"/>','userController.do?userinfo',550,220)"><t:mutiLang langKey="common.profile"/></a></li>
                            <%--  <li><a href="javascript:openwindow('<t:mutiLang langKey="common.ssms.getSysInfos"/>','tSSmsController.do?getSysInfos')"><t:mutiLang langKey="common.ssms.getSysInfos"/></a></li>
                             <li><a href="javascript:add('<t:mutiLang langKey="common.change.style"/>','userController.do?changestyle','',550,250)"><t:mutiLang langKey="common.my.style"/></a></li>--%> 
                             <li><a href="javascript:clearLocalstorage()"><t:mutiLang langKey="common.clear.localstorage"/></a></li>                          
@@ -390,32 +390,32 @@
           if(data!=null){    
         	  	var flag=false;
             	  if(data.absenceSum>0){
-            		  var li="<li><a href=javascript:addTab('sXyAbsenceController.do?listCheck','11','请假审批')>请假审批：等待您的批准 <font color='red' size='4' >("+data.absenceSum+")</font> 条</a></li><br>";
+            		  var li="<li><a href=javascript:addTab('sXyAbsenceController.do?listCheck','11','请假审批')>请假审批：等待您的批准 <font color='red' size='4' >("+data.absenceSum+")</font> 条，请查看</a></li><br>";
                 	  $("#iframe0").contents().find("#approve").append(li);  
                 	  flag=true;
             	  }
             	  if(data.businesstripSum>0){
-            		  var li="<li><a href=javascript:addTab('sXyBusinessTripController.do?listCheck','15','出差审批')>出差审核：等待您的批准 <font color='red' size='4' >("+data.businesstripSum+")</font> 条</a></li><br>";
+            		  var li="<li><a href=javascript:addTab('sXyBusinessTripController.do?listCheck','15','出差审批')>出差审批：等待您的批准 <font color='red' size='4' >("+data.businesstripSum+")</font> 条，请查看</a></li><br>";
                 	  $("#iframe0").contents().find("#approve").append(li); 
                 	  flag=true;
             	  }
             	  if(data.compensateleaveSum>0){
-            		  var li="<li><a href=javascript:addTab('sXyCompensateLeaveController.do?listCheck','13','调休审批')>调休审核：等待您的批准 <font color='red' size='4' >("+data.compensateleaveSum+")</font> 条</a></li><br>";
+            		  var li="<li><a href=javascript:addTab('sXyCompensateLeaveController.do?listCheck','13','调休审批')>调休审批：等待您的批准 <font color='red' size='4' >("+data.compensateleaveSum+")</font> 条，请查看</a></li><br>";
                 	  $("#iframe0").contents().find("#approve").append(li);  
                 	  flag=true;
             	  }
             	  if(data.outworkSum>0){
-            		  var li="<li><a href=javascript:addTab('sXyOutWorkController.do?listCheck','14','外出审批') >外出审核：等待您的批准 <font color='red' size='4' >("+data.outworkSum+")</font> 条</a></li><br>";
+            		  var li="<li><a href=javascript:addTab('sXyOutWorkController.do?listCheck','14','外出审批') >外出审批：等待您的批准 <font color='red' size='4' >("+data.outworkSum+")</font> 条，请查看</a></li><br>";
                 	  $("#iframe0").contents().find("#approve").append(li);  
                 	  flag=true;
             	  }
             	  if(data.workovertimeSum>0){
-            		  var li="<li><a href=javascript:addTab('sXyWorkOvertimeController.do?listCheck','12','加班审批')>加班审核：等待您的批准 <font color='red' size='4' >("+data.workovertimeSum+")</font> 条</a></li><br>";
+            		  var li="<li><a href=javascript:addTab('sXyWorkOvertimeController.do?listCheck','12','加班审批')>加班审批：等待您的批准 <font color='red' size='4' >("+data.workovertimeSum+")</font> 条，请查看</a></li><br>";
                 	  $("#iframe0").contents().find("#approve").append(li);  
                 	  flag=true;
             	  }
             	  if(data.checkApplySum>0){
-            		  var li="<li><a href=javascript:addTab('sXyCheckApplyController.do?listCheck','7','考勤异常审批')>考勤异常审核：等待您的批准 <font color='red' size='4' >("+data.checkApplySum+")</font> 条</a></li><br>";
+            		  var li="<li><a href=javascript:addTab('sXyCheckApplyController.do?listCheck','7','考勤异常审批')>考勤异常审批：等待您的批准 <font color='red' size='4' >("+data.checkApplySum+")</font> 条，请查看</a></li><br>";
                 	  $("#iframe0").contents().find("#approve").append(li);  
                 	  flag=true;
             	  }
@@ -454,32 +454,32 @@
             	  
             	  
             	  if(data.selfAbsenceSum>0){
-            		  var li="<li><a href=javascript:addTab('sXyAbsenceController.do?list','4','请假管理')>请假审批回复 <font color='red' size='4' >("+data.selfAbsenceSum+")</font> 条，请查看</a></li><br>";
+            		  var li="<li><a href=javascript:addTab('sXyAbsenceController.do?list','4','请假管理')>请假管理操作 <font color='red' size='4' >("+data.selfAbsenceSum+")</font> 条，请查看</a></li><br>";
                 	  $("#iframe0").contents().find("#approve").append(li);  
                 	  flag=true;
             	  }
             	  if(data.selfBusinesstripSum>0){
-            		  var li="<li><a href=javascript:addTab('sXyBusinessTripController.do?list','6','出差管理')>出差审批回复 <font color='red' size='4' >("+data.selfBusinesstripSum+")</font> 条，请查看</a></li><br>";
+            		  var li="<li><a href=javascript:addTab('sXyBusinessTripController.do?list','6','出差管理')>出差管理操作 <font color='red' size='4' >("+data.selfBusinesstripSum+")</font> 条，请查看</a></li><br>";
                 	  $("#iframe0").contents().find("#approve").append(li);  
                 	  flag=true;
             	  }
             	  if(data.selfCompensateleaveSum>0){
-            		  var li="<li><a href=javascript:addTab('sXyCompensateLeaveController.do?list','7','调休管理')>调休审批回复 <font color='red' size='4' >("+data.selfCompensateleaveSum+")</font> 条，请查看</a></li><br>";
+            		  var li="<li><a href=javascript:addTab('sXyCompensateLeaveController.do?list','7','调休管理')>调休管理操作 <font color='red' size='4' >("+data.selfCompensateleaveSum+")</font> 条，请查看</a></li><br>";
                 	  $("#iframe0").contents().find("#approve").append(li); 
                 	  flag=true;
             	  }
             	  if(data.selfOutworkSum>0){
-            		  var li="<li><a href=javascript:addTab('sXyOutWorkController.do?list','9','外出管理')>外出审批回复 <font color='red' size='4' >("+data.selfOutworkSum+")</font> 条，请查看</a></li><br>";
+            		  var li="<li><a href=javascript:addTab('sXyOutWorkController.do?list','9','外出管理')>外出管理操作 <font color='red' size='4' >("+data.selfOutworkSum+")</font> 条，请查看</a></li><br>";
                 	  $("#iframe0").contents().find("#approve").append(li);  
                 	  flag=true;
             	  }
             	  if(data.selfWorkovertimeSum>0){
-            		  var li="<li><a href=javascript:addTab('sXyWorkOvertimeController.do?list','5','加班管理')>加班审批回复 <font color='red' size='4' >("+data.selfWorkovertimeSum+")</font> 条，请查看</a></li><br>";
+            		  var li="<li><a href=javascript:addTab('sXyWorkOvertimeController.do?list','5','加班管理')>加班管理操作 <font color='red' size='4' >("+data.selfWorkovertimeSum+")</font> 条，请查看</a></li><br>";
                 	  $("#iframe0").contents().find("#approve").append(li);  
                 	  flag=true;
             	  }
             	  if(data.selfCheckApplySum>0){
-            		  var li="<li><a href=javascript:addTab('sXyCheckApplyController.do?list','8','考勤异常管理')>考勤异常审批回复 <font color='red' size='4' >("+data.selfCheckApplySum+")</font> 条，请查看</a></li><br>";
+            		  var li="<li><a href=javascript:addTab('sXyCheckApplyController.do?list','8','考勤异常管理')>考勤异常管理操作 <font color='red' size='4' >("+data.selfCheckApplySum+")</font> 条，请查看</a></li><br>";
                 	  $("#iframe0").contents().find("#approve").append(li);  
                 	  flag=true;
             	  } 

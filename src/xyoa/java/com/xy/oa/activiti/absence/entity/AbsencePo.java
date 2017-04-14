@@ -1,20 +1,26 @@
 package com.xy.oa.activiti.absence.entity;
 
+@SuppressWarnings("serial")
 public class AbsencePo extends SXyAbsenceEntity {
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-	private String isApprove;
-
-	public String getIsApprove() {
-		return isApprove;
+	private String isAgree;
+	private String isNotAgree;
+	private String isHrAgree;
+	public String getIsAgree() {
+		return isAgree;
 	}
-
-	public void setIsApprove(String isApprove) {
-		this.isApprove = isApprove;
+	public void setIsAgree(String isAgree) {
+		this.isAgree = isAgree;
 	}
-	
-	
-
+	public String getIsNotAgree() {
+		return isNotAgree;
+	}
+	public void setIsNotAgree(String isNotAgree) {
+		this.isNotAgree = isNotAgree;
+	}
+	public String getIsHrAgree() {
+		return isHrAgree;
+	}
+	public void setIsHrAgree(String isHrAgree) {
+		this.isHrAgree = isHrAgree;
+	}
 }

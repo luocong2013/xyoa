@@ -10,8 +10,6 @@ $(document).ready(function(){
  			$("#sXyCompensateLeaveListtb").find("input[name='backDate']").attr("class","Wdate").click(function(){WdatePicker({dateFmt:'yyyy-MM-dd'});});
  			$("#sXyCompensateLeaveListtb").find("input[name='cTime']").attr("class","Wdate").click(function(){WdatePicker({dateFmt:'yyyy-MM-dd'});});
  			$("#sXyCompensateLeaveListtb").find("input[name='uTime']").attr("class","Wdate").click(function(){WdatePicker({dateFmt:'yyyy-MM-dd'});});
- 			$("#sXyCompensateLeaveListtb").find("div[name='searchColums']").find("form#sXyCompensateLeaveListForm").append($("#tempSearchColums div[name='searchColums']").html());
- 	        $("#tempSearchColums").html('');
  });
  
 //编辑调休申请
@@ -26,10 +24,10 @@ $(document).ready(function(){
 	 createwindow("选择第一审批人",url,600,140);
  }
  
-//撤销调休申请
- function delLeave(id) {
-	 var url = 'sXyCompensateLeaveController.do?delLeave&id='+id;
-	 var content = "确定撤销该申请？";
+//启动流程
+ function startFlow(id) {
+	 var url = 'sXyCompensateLeaveController.do?startFlow&id='+id;
+	 var content = "确定启动该流程？";
 	 var gridname = 'sXyCompensateLeaveList';
 	 confirm(url, content, gridname);
  }
@@ -40,24 +38,10 @@ $(document).ready(function(){
 	 createdetailwindow("流程图片",url,1000,500);
  }
  
- //重新提交调休申请
- function reSubmitLeave(id) {
-	 var url = 'sXyCompensateLeaveController.do?reSubmitLeave&id='+id;
-	 var content = "确定重新提交该申请？";
-	 var gridname = 'sXyCompensateLeaveList';
-	 confirm(url, content, gridname);
- }
- 
  //取消调休申请
  function cancelLeave(id) {
 	 var url = 'sXyCompensateLeaveController.do?cancelLeave&id='+id;
 	 var content = "确定取消该申请？";
 	 var gridname = 'sXyCompensateLeaveList';
 	 confirm(url, content, gridname);
- }
- 
- //销假
- function gobackLeave(id) {
-	 var url = 'sXyCompensateLeaveController.do?gobackLeave&id='+id;
-	 createwindow("销假申请", url, 600, 300);
  }

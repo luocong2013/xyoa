@@ -17,15 +17,17 @@
             <t:dgCol title="common.operation" field="opt"></t:dgCol>
             <t:dgDelOpt url="departController.do?del&id={id}" title="common.delete"></t:dgDelOpt>
             <t:dgFunOpt funname="queryUsersByDepart(id)" title="view.member"></t:dgFunOpt>
-            <t:dgFunOpt funname="setRoleByDepart(id,text)" title="role.set"></t:dgFunOpt>
+            <%-- <t:dgFunOpt funname="setRoleByDepart(id,text)" title="role.set"></t:dgFunOpt> --%>
         </t:datagrid>
         <div id="departListtb" style="padding: 3px; height: 25px">
             <div style="float: left;">
                 <a href="#" class="easyui-linkbutton" plain="true" icon="icon-add" onclick="addOrg()"><t:mutiLang langKey="common.add.param" langArg="common.department"/></a>
                 <a href="#" class="easyui-linkbutton" plain="true" icon="icon-edit" onclick="update('<t:mutiLang langKey="common.edit.param" langArg="common.department"/>','departController.do?update','departList')"><t:mutiLang langKey="common.edit.param" langArg="common.department"/></a>
+                <%--
                 <a href="#" class="easyui-linkbutton" plain="true" icon="icon-put" onclick="ImportXls()"><t:mutiLang langKey="excelImport" langArg="common.department"/></a>
                 <a href="#" class="easyui-linkbutton" plain="true" icon="icon-putout" onclick="ExportXls()"><t:mutiLang langKey="excelOutput" langArg="common.department"/></a>
                 <a href="#" class="easyui-linkbutton" plain="true" icon="icon-putout" onclick="ExportXlsByT()"><t:mutiLang langKey="templateDownload" langArg="common.department"/></a>
+                 --%>
             </div>
         </div>
     </div>

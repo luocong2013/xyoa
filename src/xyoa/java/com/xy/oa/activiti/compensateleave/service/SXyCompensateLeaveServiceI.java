@@ -8,7 +8,7 @@ import org.jeecgframework.core.common.service.CommonService;
 import com.xy.oa.activiti.compensateleave.entity.SXyCompensateLeaveEntity;
 
 /**
- * 享宇调休申请 服务层接口
+ * 调休申请 服务层接口
  * @author Luo
  *
  */

@@ -16,6 +16,8 @@
 	<t:dgDelOpt title="common.delete" url="userController.do?del&id={id}&userName={userName}" />
 	<t:dgToolBar title="common.add.param" langArg="common.user" icon="icon-add" url="userController.do?addorupdate&roleId=${roleId}" funname="add"></t:dgToolBar>
 	<t:dgToolBar title="common.edit.param" langArg="common.user" icon="icon-edit" url="userController.do?addorupdate&roleId=${roleId}" funname="update"></t:dgToolBar>
+	<%--
 	<t:dgToolBar title="common.add.exist.user" icon="icon-add" url="roleController.do?goAddUserToRole&roleId=${roleId}" funname="add" width="500"></t:dgToolBar>
+	 --%>
 </t:datagrid>
 

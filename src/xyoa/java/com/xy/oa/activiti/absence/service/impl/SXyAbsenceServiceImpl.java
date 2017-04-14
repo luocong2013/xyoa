@@ -16,7 +16,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.xy.oa.activiti.absence.entity.SXyAbsenceEntity;
 import com.xy.oa.activiti.absence.service.SXyAbsenceServiceI;
 /**
- * 享宇请假表业务层接口实现
+ * 请假表业务层接口实现
  * @author Luo
  *
  */

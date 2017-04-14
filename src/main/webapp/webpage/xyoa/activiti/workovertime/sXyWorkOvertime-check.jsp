@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
  <head>
-  <title>享宇加班表</title>
+  <title>加班表</title>
   <t:base type="jquery,easyui,tools,DatePicker"></t:base>
   <script type="text/javascript">
   //编写自定义JS代码

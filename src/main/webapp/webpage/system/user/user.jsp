@@ -104,7 +104,7 @@
 			<tr>
 				<td align="right"><label class="Validform_label"> <t:mutiLang langKey="common.repeat.password"/>: </label></td>
 				<td class="value">
-                    <input id="repassword" class="inputxt" type="password" value="${user.password}" recheck="password" datatype="*6-18" errormsg="两次输入的密码不一致！">
+                    <input id="repassword" class="inputxt" type="password" recheck="password" datatype="*6-18" errormsg="两次输入的密码不一致！">
                     <span class="Validform_checktip"><t:mutiLang langKey="common.repeat.password"/></span>
                 </td>
 			</tr>

@@ -17,23 +17,23 @@ import java.util.List;
 @Inheritance(strategy = InheritanceType.JOINED)
 public class TSBaseUser extends IdEntity implements java.io.Serializable {
 	private static final long serialVersionUID = 1L;
-	@Excel(name = "用户名")
+	@Excel(name = "用户账号")
 	private String userName;// 用户名
 	@Excel(name = "真实姓名")
 	private String realName;// 真实姓名
 	private String browser;// 用户使用浏览器类型
-	@Excel(name = "角色编码(多个角色编码用逗号分隔，非必填)")
+	@Excel(name = "角色名称")
 	private String userKey;// 用户验证唯一标示
 	private String password;//用户密码
 	private Short activitiSync;//是否同步工作流引擎
-	/*@Excel(name = "状态")*/
-	private Short status;// 状态1：在线,2：离线,0：禁用
+	/**@Excel(name = "状态", replace={"正常_1", "禁用_0", "超级管理员_-1"})*/
+	private Short status;// 状态 1：正常,0：禁用,-1：超级管理员
 	
 	private Short deleteFlag;// 状态: 0:不删除  1：删除
 	
 	private byte[] signature;// 签名文件
 
-	@Excel(name = "组织机构编码(多个组织机构编码用逗号分隔，非必填)")
+	@Excel(name = "所属部门")
 	private String departid;
 
 	public void setDepartid(String departid){

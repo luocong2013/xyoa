@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>享宇调休表</title>
+  <title>调休表</title>
   <t:base type="jquery,easyui,tools"></t:base>
   <script type="text/javascript">
 //编写自定义JS代码
