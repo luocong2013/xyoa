@@ -238,7 +238,7 @@ public class Apriori {
 	}
 	
 	public Double formatD(Double dou) {
-		DecimalFormat df = new DecimalFormat("#.0000");
+		DecimalFormat df = new DecimalFormat("#.00");
 		return Double.valueOf(df.format(dou));
 	}
 	

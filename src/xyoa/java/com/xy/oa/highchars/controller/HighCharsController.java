@@ -183,7 +183,7 @@ public class HighCharsController {
 		for (String rrKey : rrKeySet) {
 			map = new HashMap<String, Object>();
 			map.put("name", apriori.splitRelation(rrKey));
-			map.put("y", apriori.formatD(relationRulesMap.get(rrKey))*100);
+			map.put("y", apriori.formatD(relationRulesMap.get(rrKey)*100));
 			lt.add(map);
 		}
 		hc.setType(reportType);
