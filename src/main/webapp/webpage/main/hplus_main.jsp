@@ -90,6 +90,7 @@
                     </form>
                 </div>
                 <ul class="nav navbar-top-links navbar-right">
+                	<%--
                     <li class="dropdown">
                         <a class="dropdown-toggle count-info" data-toggle="dropdown" href="#">
                            公告 <i class="fa fa-envelope"></i> <span class="label label-warning" id="noticenum">0</span>
@@ -99,7 +100,7 @@
                                 <a class="" href="javascript:goNotReadNotice();">
                                     <div>
                                         <i class="fa fa-envelope fa-fw"></i> <div id="noticenum2">您有0条未读消息</div>
-                                        <%--<span class="pull-right text-muted small">4分钟前</span>--%>
+                                        <!--<span class="pull-right text-muted small">4分钟前</span>-->
                                     </div>
                                 </a>
                             </li>
@@ -113,7 +114,7 @@
                                 </div>
                             </li>
                         </ul>
-                    </li>
+                    </li> --%>
                     <li class="dropdown hidden-xs">
                         <a class="right-sidebar-toggle" aria-expanded="false">
                             <i class="fa fa-tasks"></i> 主题
@@ -153,7 +154,7 @@
          	
          </div>
         <div class="footer">
-            <div class="pull-right"><a href="http://45.32.13.191/index/" target="_blank">个人网站 ©2017 CUIT-SXXY</a>
+            <div class="pull-right"><a href="http://45.32.13.191/index/" target="_blank">协同办公系统 ©2017 CUIT-SXXY</a>
             </div>
         </div>
     </div>

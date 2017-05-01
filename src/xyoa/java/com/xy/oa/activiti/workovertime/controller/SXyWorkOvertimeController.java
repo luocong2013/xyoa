@@ -306,8 +306,6 @@ public class SXyWorkOvertimeController extends BaseController {
 	public AjaxJson doAdd(SXyWorkOvertimeEntity sXyWorkOvertime, HttpServletRequest request) {
 		String message = null;
 		AjaxJson j = new AjaxJson();
-		//加班类型
-		String workType = sXyWorkOvertime.getWorkType();
 		message = "加班申请添加成功";
 		try{
 			//当前登录的用户
@@ -320,17 +318,10 @@ public class SXyWorkOvertimeController extends BaseController {
 			sXyWorkOvertime.setApplySttaffId(Integer.valueOf(tsUser.getUserName()));
 			//设置部门
 			sXyWorkOvertime.setTsDept(tsDepart);
-			if("03".equals(workType)) {
-				sXyWorkOvertime.setStartTime(sXyWorkOvertime.getApplyStartTime());
-				sXyWorkOvertime.setEndTime(sXyWorkOvertime.getApplyEndTime());
-				sXyWorkOvertime.setWorkHour(sXyWorkOvertime.getApplyWorkHour());
-				sXyWorkOvertime.setOnWorkHour(4*Constants.OTHER);
-			} else if("04".equals(workType)) {
-				sXyWorkOvertime.setStartTime(sXyWorkOvertime.getApplyStartTime());
-				sXyWorkOvertime.setEndTime(sXyWorkOvertime.getApplyEndTime());
-				sXyWorkOvertime.setWorkHour(sXyWorkOvertime.getApplyWorkHour());
-				sXyWorkOvertime.setOnWorkHour(8*Constants.OTHER);
-			}
+			sXyWorkOvertime.setStartTime(sXyWorkOvertime.getApplyStartTime());
+			sXyWorkOvertime.setEndTime(sXyWorkOvertime.getApplyEndTime());
+			sXyWorkOvertime.setWorkHour(sXyWorkOvertime.getApplyWorkHour());
+			sXyWorkOvertime.setOnWorkHour(sXyWorkOvertime.getApplyWorkHour());
 			//设置创建时间
 			sXyWorkOvertime.setCreateTime(new Date());
 			//设置加班申请创建人
@@ -363,25 +354,15 @@ public class SXyWorkOvertimeController extends BaseController {
 	public AjaxJson doUpdate(SXyWorkOvertimeEntity sXyWorkOvertime, HttpServletRequest request) {
 		String message = null;
 		AjaxJson j = new AjaxJson();
-		//加班类型
-		String workType = sXyWorkOvertime.getWorkType();
 		message = "加班申请更新成功";
 		SXyWorkOvertimeEntity t = sXyWorkOvertimeService.get(SXyWorkOvertimeEntity.class, sXyWorkOvertime.getId());
 		//当前登录的用户
 		TSUser tsUser = ResourceUtil.getSessionUserName();
 		try {
-			if("03".equals(workType)) {
-				sXyWorkOvertime.setStartTime(sXyWorkOvertime.getApplyStartTime());
-				sXyWorkOvertime.setEndTime(sXyWorkOvertime.getApplyEndTime());
-				sXyWorkOvertime.setWorkHour(sXyWorkOvertime.getApplyWorkHour());
-				sXyWorkOvertime.setOnWorkHour(4*Constants.OTHER);
-			}
-			else if("04".equals(workType)) {
-				sXyWorkOvertime.setStartTime(sXyWorkOvertime.getApplyStartTime());
-				sXyWorkOvertime.setEndTime(sXyWorkOvertime.getApplyEndTime());
-				sXyWorkOvertime.setWorkHour(sXyWorkOvertime.getApplyWorkHour());
-				sXyWorkOvertime.setOnWorkHour(8*Constants.OTHER);
-			}
+			sXyWorkOvertime.setStartTime(sXyWorkOvertime.getApplyStartTime());
+			sXyWorkOvertime.setEndTime(sXyWorkOvertime.getApplyEndTime());
+			sXyWorkOvertime.setWorkHour(sXyWorkOvertime.getApplyWorkHour());
+			sXyWorkOvertime.setOnWorkHour(sXyWorkOvertime.getApplyWorkHour());
 			//设置更新时间
 			sXyWorkOvertime.setUTime(new Date());
 			//设置更新人编号
