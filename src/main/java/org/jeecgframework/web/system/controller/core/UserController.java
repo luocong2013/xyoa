@@ -427,7 +427,7 @@ public class UserController extends BaseController {
       			user.setRealName("*"+user.getRealName()+"*");
         //查询条件组装器
         org.jeecgframework.core.extend.hqlsearch.HqlGenerateUtil.installHql(cq, user);
-        Short[] userstate = new Short[]{Globals.User_Normal, Globals.User_ADMIN, Globals.User_Forbidden};
+        Short[] userstate = new Short[]{Globals.User_Normal, Globals.User_Forbidden};
         cq.in("status", userstate);
         cq.eq("deleteFlag", Globals.Delete_Normal);
         String orgIds = request.getParameter("orgIds");
