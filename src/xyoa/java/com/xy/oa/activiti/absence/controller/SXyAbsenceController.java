@@ -506,10 +506,13 @@ public class SXyAbsenceController extends BaseController {
 			//申请请假天数（小时数转换为天数）
 			double applyAbsenceDay = sXyAbsence.getApplyAbsenceDay() / 7.5;
 			String fixLineName = "同意,day>";
-			lineName = sXyAbsenceService.findLineName(sXyAbsence.getFlowInstId(), fixLineName, tsUser.getUserName());
-			int day = Integer.parseInt(lineName.substring(lineName.indexOf(">")+1));
-			if (applyAbsenceDay <= day) {
-				lineName = "同意,day<="+day;
+			String tempLineName = sXyAbsenceService.findLineName(sXyAbsence.getFlowInstId(), fixLineName, tsUser.getUserName());
+			if (tempLineName != null) {
+				lineName = tempLineName;
+				int day = Integer.parseInt(lineName.substring(lineName.indexOf(">")+1));
+				if (applyAbsenceDay <= day) {
+					lineName = "同意,day<="+day;
+				}
 			}
 		}
 		String nextApproverRoleCode = sXyAbsenceService.findNextApproverRoleCode(sXyAbsence.getFlowInstId(), lineName, tsUser.getUserName());
@@ -829,10 +832,13 @@ public class SXyAbsenceController extends BaseController {
 					//申请请假天数（小时数转换为天数）
 					double applyAbsenceDay = sXyAbsence.getApplyAbsenceDay() / 7.5f;
 					String fixLineName = "同意,day>";
-					lineName = sXyAbsenceService.findLineName(sXyAbsence.getFlowInstId(), fixLineName, tsUser.getUserName());
-					int day = Integer.parseInt(lineName.substring(lineName.indexOf(">")+1));
-					if (applyAbsenceDay <= day) {
-						lineName = "同意,day<="+day;
+					String tempLineName = sXyAbsenceService.findLineName(sXyAbsence.getFlowInstId(), fixLineName, tsUser.getUserName());
+					if (tempLineName != null) {
+						lineName = tempLineName;
+						int day = Integer.parseInt(lineName.substring(lineName.indexOf(">")+1));
+						if (applyAbsenceDay <= day) {
+							lineName = "同意,day<="+day;
+						}
 					}
 				}
 				nextApproverRoleCode = sXyAbsenceService.findNextApproverRoleCode(sXyAbsence.getFlowInstId(), lineName, tsUser.getUserName());
